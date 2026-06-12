@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luna Makeup Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>💄 Luna Makeup Store</h1>
+    <p>Gestión de productos de maquillaje</p>
+  </header>
+
+  <main>
+    <!-- DASHBOARD -->
+    <section class="dashboard">
+      <div class="card">
+        <h3 id="total-productos">0</h3>
+        <p>Total Productos</p>
+      </div>
+      <div class="card">
+        <h3 id="total-categorias">0</h3>
+        <p>Categorías</p>
+      </div>
+      <div class="card">
+        <h3 id="total-stock">0</h3>
+        <p>Unidades en Stock</p>
+      </div>
+      <div class="card">
+        <h3 id="total-valor">$0</h3>
+        <p>Valor del Inventario</p>
+      </div>
+    </section>
+
+    <!-- FILTROS Y BÚSQUEDA -->
+    <section class="filtros">
+      <input type="text" id="buscar" placeholder="🔍 Buscar por nombre...">
+      <select id="filtro-categoria">
+        <option value="">Todas las categorías</option>
+        <option value="Labiales">Labiales</option>
+        <option value="Bases">Bases</option>
+        <option value="Sombras">Sombras</option>
+        <option value="Rubores">Rubores</option>
+        <option value="Máscaras">Máscaras</option>
+        <option value="Correctores">Correctores</option>
+        <option value="Otros">Otros</option>
+      </select>
+      <button onclick="abrirModal()">➕ Nuevo Producto</button>
+    </section>
+
+    <!-- TABLA DE PRODUCTOS -->
+    <section class="tabla-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Marca</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tabla-productos"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- MODAL FORMULARIO -->
+  <div id="modal" class="modal oculto">
+    <div class="modal-contenido">
+      <h2 id="modal-titulo">Nuevo Producto</h2>
+      <input type="hidden" id="producto-id">
+
+      <label>Nombre *</label>
+      <input type="text" id="nombre" placeholder="Ej: Labial Rojo Intenso">
+
+      <label>Marca *</label>
+      <input type="text" id="marca" placeholder="Ej: MAC, NYX, L'Oreal">
+
+      <label>Categoría *</label>
+      <select id="categoria">
+        <option value="">Selecciona una categoría</option>
+        <option value="Labiales">Labiales</option>
+        <option value="Bases">Bases</option>
+        <option value="Sombras">Sombras</option>
+        <option value="Rubores">Rubores</option>
+        <option value="Máscaras">Máscaras</option>
+        <option value="Correctores">Correctores</option>
+        <option value="Otros">Otros</option>
+      </select>
+
+      <label>Precio (COP) *</label>
+      <input type="number" id="precio" placeholder="Ej: 45000">
+
+      <label>Stock *</label>
+      <input type="number" id="stock" placeholder="Ej: 10">
+
+      <label>Descripción</label>
+      <textarea id="descripcion" placeholder="Descripción del producto..."></textarea>
+
+      <div class="modal-botones">
+        <button onclick="cerrarModal()" class="btn-cancelar">Cancelar</button>
+        <button onclick="guardarProducto()" class="btn-guardar">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MENSAJE TOAST -->
+  <div id="toast" class="toast oculto"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
