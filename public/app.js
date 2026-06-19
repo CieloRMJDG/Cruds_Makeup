@@ -1,4 +1,4 @@
-const API = 'http://localhost:3000/api/productos';
+const API = '/api/productos';
 
 // ========== CARGAR PRODUCTOS ==========
 async function cargarProductos() {
